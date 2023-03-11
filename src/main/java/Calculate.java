@@ -10,24 +10,24 @@ public class Calculate {
         while (true) {
             System.out.println("Напишите название блюда:");
             String productName = scanner.next();
-            listProducts = listProducts + "\n" + productName;
+            listProducts = listProducts + "\n" + productName; // собираем список продуктов
 
             System.out.println("Напишите цену на блюдо:");
             double productCost = scanner.nextDouble();
             sum = sum + productCost; // суммируем стоимость товаров
 
-            //Product productObject = new Product(productName, productCost); // создаём обект с полями название продукта и цены
             System.out.println("Товар успешно добавлен");
 
             System.out.println("Желаете добавить еще товар?");
-            String requestion = scanner.next();
+            String requestion = scanner.next(); // продолжает работу при вводе любого символа или текста
 
-            if (requestion.equalsIgnoreCase("Завершить")) {
+            if (requestion.equalsIgnoreCase("Завершить")) { // при вводе завершить, программа останавливает работу
 
-                sumPerPerson = sum / quantityPeople;
+                sumPerPerson = sum / quantityPeople; // делим общий счет на количество людей
 
-                System.out.println(listProducts);
+                System.out.println(listProducts); // выводим список продуктов
                 System.out.printf("Каждый человек должен заплатить: %.2f %s.", sumPerPerson, Formater.formater(sumPerPerson));
+                // выводим сумму для оплаты на каждого человека
                 break;
             }
         }
