@@ -15,7 +15,7 @@ public class Main {
             } else if (quantityPeople < 1) { //просим заново ввести колличество людей
                 System.out.println("Не корректное колличество людей, значение должно быть больше 1.");
             } else { //начинаем собирать название товаров и цены пока не будет команды завершить
-                Calculate.calculate(quantityPeople);
+                Calculate.calculate(quantityPeople); // quantityPeople добавляем что бы сумму разделить на количество людей
                 return;
             }
         }
