@@ -10,26 +10,39 @@ public class Calculate {
         while (true) {
             System.out.println("Напишите название блюда:");
             String productName = scanner.next();
-            listProducts = listProducts + "\n" + productName; // собираем список продуктов
+            //listProducts = listProducts + "\n" + productName; // собираем список продуктов
 
             System.out.println("Напишите цену на блюдо:");
-            double productCost = scanner.nextDouble();
-            sum = sum + productCost; // суммируем стоимость товаров
 
-            System.out.println("Товар успешно добавлен");
+            if (scanner.hasNextDouble()) {
 
-            System.out.println("Желаете добавить еще товар?");
-            String requestion = scanner.next(); // продолжает работу при вводе любого символа или текста
+                double productCost = scanner.nextDouble();
+                listProducts = listProducts + "\n" + productName; // собираем список продуктов
+                sum += productCost; // суммируем стоимость товаров
+                System.out.println("Товар успешно добавлен.\nЖелаете добавить еще товар?");
 
-            if (requestion.equalsIgnoreCase("Завершить")) { // при вводе завершить, программа останавливает работу
+                String requestion = scanner.next(); // продолжает работу при вводе любого символа или текста
 
-                sumPerPerson = sum / quantityPeople; // делим общий счет на количество людей
+                if (requestion.equalsIgnoreCase("Завершить")) { // при вводе завершить, программа останавливает работу
 
-                System.out.println(listProducts); // выводим список продуктов
-                System.out.printf("Каждый человек должен заплатить: %.2f %s.", sumPerPerson, Formater.formater(sumPerPerson));
-                // выводим сумму для оплаты на каждого человека
-                break;
+                    sumPerPerson = sum / quantityPeople; // делим общий счет на количество людей
+
+                    System.out.println(listProducts); // выводим список продуктов
+                    System.out.printf("Каждый человек должен заплатить: %.2f %s.", sumPerPerson, Format.format(sumPerPerson));
+                    // выводим сумму для оплаты на каждого человека
+                    break;
+                }
+
+            } else {
+                scanner.nextLine();
+                System.out.println("Неверный ввод. Требуется ввести целое число или дсятичное.");
+
             }
+
+
+            //System.out.println("Товар успешно добавлен.\nЖелаете добавить еще товар?");
+
+
         }
     }
 }
