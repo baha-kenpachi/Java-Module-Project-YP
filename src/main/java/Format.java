@@ -1,6 +1,5 @@
 public class Format {
     public static String format(double formater) { // formatter возвращет рубль в правильной форме
-        String rub;
         int roundedNumber = (int) Math.floor(formater);
         int preLastDigit = roundedNumber % 100 / 10;
         if (preLastDigit == 1)
@@ -20,5 +19,10 @@ public class Format {
                 return "рублей";
         }
     }
+    // 111
+    // 111 % 100 = 11
+    // 11 / 10 = 1
+
+    // 11111111111 % 100 => .11
 
 }
