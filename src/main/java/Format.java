@@ -2,13 +2,23 @@ public class Format {
     public static String format(double formater) { // formatter возвращет рубль в правильной форме
         String rub;
         int roundedNumber = (int) Math.floor(formater);
-        if (roundedNumber == 1) {
-            rub = "рубль";
-        } else if (roundedNumber > 1 && roundedNumber < 5) {
-            rub = "рубля";
-        } else {
-            rub = "рублей";
+        int preLastDigit = roundedNumber % 100 / 10;
+        if (preLastDigit == 1)
+        {
+            return "рублей";
         }
-        return rub;
+
+        switch (roundedNumber % 10)
+        {
+            case 1:
+                return "рубль";
+            case 2:
+            case 3:
+            case 4:
+                return "рубля";
+            default:
+                return "рублей";
+        }
     }
+
 }
